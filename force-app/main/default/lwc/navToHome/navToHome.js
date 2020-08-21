@@ -1,11 +1,14 @@
 import { LightningElement } from 'lwc';
-import {NavagationMixin} from 'lightning/navigation';
-export default class NavToHome extends LightningElement {
-    goToHomeHandler(){
-        this[NavagationMixin.Navigate]({
-            type : 'standard__namePage',
-            attributes : {
-                pageName : 'home'
+import { NavigationMixin } from 'lightning/navigation';
+
+export default class NavToHome extends NavigationMixin(LightningElement) {
+    goToHomeHandler() {
+        // Use the built-in 'Navigate' method
+        this[NavigationMixin.Navigate]({
+            // Pass in pageReference
+            type: 'standard__namedPage',
+            attributes: {
+                pageName: 'home'
             }
         });
     }
